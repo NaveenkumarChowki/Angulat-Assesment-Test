@@ -1,0 +1,44 @@
+
+<p>product-list works!</p>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1> 
+    <input type="text" [(ngModel)]="newCategory" placeholder="Category">
+<input type="text" [(ngModel)]="newProductName" placeholder="Product Name">
+<input type="text" [(ngModel)]="newPrice" placeholder="Price">
+<!-- <input type="text" [(ngModel)]="newQty" placeholder="Quantity"> -->
+<button (click) ="addProduct()">Add </button>
+
+    <!-- <button (click)="getData()">search</button>  -->
+    <br>
+    <table *ngIf="products">
+      <tr>
+                   <th>id</th>
+                  <th>productname</th>
+                      <th>price</th>
+                      <th>category</th>
+          </tr>
+          <div  *ngFor="let category of getUniqueCategories()">
+              <tr (click)="setCategoryClicked(category)">
+                <td></td>  
+                <td>{{ category }}</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <div *ngIf="isCategoryClicked(category)">
+                  <tr *ngFor="let product of getProductsInCategories(category)">
+                      <td>{{product.id}}</td>
+                      <td></td>  
+                      <td>{{product.productname}}</td>
+                      <td>{{product.price}}</td>
+                      <td></td>
+                      <td><button (click)="deleteRow(product.id)">delete</button></td>
+                      <td><button (click)="updateRow(product.id)">Edit</button></td>
+                  </tr>
+              </div>
+            </div>
+          </table>
+    </div> 

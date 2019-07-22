@@ -1,0 +1,10 @@
+table, th, td 
+{
+    margin: auto;
+    border: solid 1px darkgreen;
+    padding: 2px 4px;
+    font: 15px Verdana;
+}
+th {
+    font-weight:bold;
+}
